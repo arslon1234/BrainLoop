@@ -6,5 +6,12 @@ export default defineConfig({
   plugins: [react(),tailwindcss()],
   optimizeDeps: {
     include: ['@monaco-editor/react']
-  }
+  },
+  resolve: {
+    alias: [
+      { find: "@", replacement: "/src/*" },
+      { find: "@pages", replacement: "/src/pages" },
+      { find: "@widgets", replacement: "/src/widgets" },
+    ],
+  },
 })

@@ -11,3 +11,34 @@ html, body {
   height: 100%;
   background-color: #3c3c3c;
 }
+.monaco-editor {
+  border-radius: 8px !important; /* Asosiy editor konteyneriga */
+  background: #262626 !important;
+  overflow: visible !important;
+}
+
+.monaco-editor-background,
+.monaco-editor .margin,
+.monaco-editor .gutter,
+.monaco-editor .view-lines,
+.monaco-editor .monaco-scrollable-element,
+.monaco-editor .overflow-guard,
+.monaco-editor .view-zone-container,
+.monaco-editor .monaco-editor-pane {
+  border-radius: 8px !important; /* Barcha ichki elementlarga */
+  background: #262626 !important;
+  overflow: visible !important;
+  clip-path: inset(0 round 8px) !important; /* Burchaklarni kesishni ta'minlash */
+}
+
+.monaco-editor .line-numbers {
+  color: #858585 !important; /* Qator raqamlari matni */
+}
+
+/* Dinamik stillarni bekor qilish uchun */
+.monaco-editor .monaco-editor-background,
+.monaco-editor .view-overlays,
+.monaco-editor .scroll-decoration {
+  border-radius: 8px !important;
+  overflow: visible !important;
+}

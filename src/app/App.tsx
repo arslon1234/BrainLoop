@@ -1,4 +1,4 @@
-import Layout from "../pages/layout"
+import {Layout} from "@pages"
 const App = () => {
   return (
     <div>
