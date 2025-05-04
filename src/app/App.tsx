@@ -1,8 +1,8 @@
-
+import Layout from "../pages/layout"
 const App = () => {
   return (
     <div>
-      <h1>App</h1>
+      <Layout/>
     </div>
   )
 }
