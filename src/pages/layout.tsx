@@ -1,5 +1,5 @@
 import { Splitter } from 'antd';
-import { CodeEditor, Question } from '@widgets';
+import { CodeEditor, Question, Result } from '@widgets';
 
 const Layout = () => {
   return (
@@ -18,8 +18,7 @@ const Layout = () => {
             </div>
           </Splitter.Panel>
           <Splitter.Panel defaultSize={27}>
-            {/* <Typography.Title level={5}>Natija:</Typography.Title>
-            <pre>{output}</pre> */}
+           <Result/>
           </Splitter.Panel>
         </Splitter>
       </Splitter.Panel>
