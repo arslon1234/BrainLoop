@@ -1,2 +1,3 @@
 import SplitterLayout from './splitter-layout/index'
-export {SplitterLayout}
+import PlaygroundHeader from './playground/header'
+export {SplitterLayout, PlaygroundHeader}

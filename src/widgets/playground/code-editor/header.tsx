@@ -2,32 +2,40 @@ import { useState } from 'react';
 import { Tooltip, Dropdown, MenuProps } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { CgFormatLeft } from "react-icons/cg";
-import { RiResetLeftLine } from "react-icons/ri";
+import { RiResetLeftLine, RiCheckLine } from "react-icons/ri";
 import './header.css';
 interface CodeEditorHeaderProps {
     onLanguageChange: (language: string) => void;
+    onFormatCode: () => void;
 }
-const CodeEditorHeader = ({ onLanguageChange }: CodeEditorHeaderProps) => {
+const CodeEditorHeader = ({ onLanguageChange, onFormatCode }: CodeEditorHeaderProps) => {
   const [selectedLanguage, setSelectedLanguage] = useState('JavaScript');
-
+  const [isFormatted, setIsFormatted] = useState(false);
   const items: MenuProps['items'] = [
-    { key: 'JavaScript', label: 'JavaScript' },
-    { key: 'Python', label: 'Python' },
-    { key: 'Java', label: 'Java' },
-    { key: 'CPP', label: 'C++' },
-    { key: 'TypeScript', label: 'TypeScript' },
-    { key: 'Ruby', label: 'Ruby' },
-    { key: 'Go', label: 'Go' },
-    { key: 'Rust', label: 'Rust' },
-    { key: 'PHP', label: 'PHP' },
-    { key: 'CSHARP', label: 'C#' },
+    { key: 'javascript', label: 'JavaScript' },
+    { key: 'python', label: 'Python' },
+    { key: 'java', label: 'Java' },
+    { key: 'cpp', label: 'C++' },
+    { key: 'typescript', label: 'TypeScript' },
+    { key: 'ruby', label: 'Ruby' },
+    { key: 'go', label: 'Go' },
+    { key: 'rust', label: 'Rust' },
+    { key: 'php', label: 'PHP' },
+    { key: 'csharp', label: 'C#' },
   ];
 
   const handleMenuClick: MenuProps['onClick'] = ({ key }) => {
-    setSelectedLanguage(key || 'JavaScript');
+    const selectedItem = items.find(item => item && 'key' in item && item.key === key);
+    setSelectedLanguage((selectedItem as { label: string } | undefined)?.label || 'JavaScript');
     onLanguageChange(key);
   };
-
+  const handleFormatClick = () => {
+    onFormatCode();
+    setIsFormatted(true);
+    setTimeout(() => {
+      setIsFormatted(false);
+    }, 1000); // 1 soniya
+  };
   return (
     <div className="p-2 bg-transparent w-full rounded-tl-lg rounded-tr-lg flex justify-between items-center border-b-[0.9px] border-[#333]">
       <div>
@@ -43,8 +51,12 @@ const CodeEditorHeader = ({ onLanguageChange }: CodeEditorHeaderProps) => {
       </div>
       <div className='flex gap-2'>
         <Tooltip title="Format Code" placement='top'>
-        <button className='cursor-pointer hover:bg-[#333] p-1 rounded-[4px]'>
-        <CgFormatLeft className='text-[17px] text-[#999]'/>
+        <button onClick={isFormatted ? undefined : handleFormatClick} disabled={isFormatted} className='cursor-pointer hover:bg-[#333] p-1 rounded-[4px]'>
+        {isFormatted ? (
+              <RiCheckLine className='text-[17px] text-[green]' />
+            ) : (
+              <CgFormatLeft className='text-[17px] text-[#999]' />
+            )}
         </button>
         </Tooltip>
         <Tooltip title="Reset to default code definition" placement='top'>

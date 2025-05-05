@@ -1,7 +1,8 @@
-import { SplitterLayout } from "@widgets"
+import { SplitterLayout, PlaygroundHeader } from "@widgets"
 const PlayGround = () => {
   return (
     <>
+      <PlaygroundHeader/>
       <SplitterLayout/>
     </>
   )

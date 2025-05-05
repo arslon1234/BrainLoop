@@ -7,12 +7,12 @@ import Result from '../playground/testcase';
 const Layout = () => {
   return (
     <Splitter
-      className="flex gap-2 h-screen"
+      className="flex gap-1 h-[calc(100vh-40px)]"
       style={{ height: '100vh', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
     >
       <Splitter.Panel>
         <Splitter
-          className="flex flex-col gap-2"
+          className="flex flex-col gap-1"
           layout="vertical"
         >
           <Splitter.Panel defaultSize={70} className="overflow-hidden">

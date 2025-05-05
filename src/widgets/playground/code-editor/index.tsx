@@ -20,7 +20,6 @@ const CodeEditor = () => {
     php: '<?php\n// Bu yerda kod yozing\necho "Salom, dunyo!";\n?>',
     csharp: '// Bu yerda kod yozing\nusing System;\nclass Program {\n  static void Main(string[] args) {\n    Console.WriteLine("Salom, dunyo!");\n  }\n}',
   };
-
   const handleEditorChange = (value: string | undefined) => {
     setCode(value || '');
   };
@@ -40,8 +39,8 @@ const CodeEditor = () => {
   };
 
   const handleLanguageChange = (language: string) => {
-    setLanguage(language.toLocaleLowerCase());
-    setCode(defaultCodes[language.toLocaleLowerCase()] || '// Kod yozing');
+    setLanguage(language);
+    setCode(defaultCodes[language] || '// Kod yozing');
     if (editorRef.current) {
       const model = editorRef.current.getModel();
       if (model) {
@@ -49,10 +48,15 @@ const CodeEditor = () => {
       }
     }
   };
+  const handleFormatCode = () => {
+    if (editorRef.current) {
+      editorRef.current.getAction('editor.action.formatDocument')?.run();
+    }
+  };
 
   return (
     <>
-      <CodeEditorHeader onLanguageChange={handleLanguageChange} />
+      <CodeEditorHeader onLanguageChange={handleLanguageChange} onFormatCode={handleFormatCode} />
       <Editor
         height="calc(100vh - 60px)"
         width="100%"
