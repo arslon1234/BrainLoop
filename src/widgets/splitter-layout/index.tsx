@@ -1,6 +1,9 @@
 import { Splitter } from 'antd';
-import { CodeEditor, Question, Result } from '@widgets';
-import './Layout.css';
+// import { CodeEditor, Question, Result } from '@widgets';
+import CodeEditor from '../playground/code-editor';
+import Question from '../playground/question';
+import Result from '../playground/testcase';
+
 
 const Layout = () => {
   return (

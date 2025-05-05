@@ -1,9 +1,9 @@
-import {Layout} from "@pages"
+import { PlayGround } from "@pages"
 const App = () => {
   return (
-    <div>
-      <Layout/>
-    </div>
+    <>
+    <PlayGround/>
+    </>
   )
 }
 

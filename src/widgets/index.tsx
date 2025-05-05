@@ -1,4 +1,2 @@
-import CodeEditor from "./code-editor";
-import Question from "./question";
-import Result from './result'
-export {CodeEditor, Question, Result}
+import SplitterLayout from './splitter-layout/index'
+export {SplitterLayout}

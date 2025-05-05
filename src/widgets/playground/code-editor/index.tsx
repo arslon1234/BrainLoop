@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import Editor from '@monaco-editor/react';
 import * as monaco from 'monaco-editor';
-
+// import CodeEditorHeader from './header';
 const CodeEditor = () => {
   const [code, setCode] = useState<string>('// Bu yerda kod yozing\nconsole.log("Salom, dunyo!");');
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
