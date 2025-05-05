@@ -1,0 +1,17 @@
+/* Editor konteynerida tanlash va hodisalarni yoqish */
+.code-editor-container {
+  user-select: text !important;
+  pointer-events: auto !important;
+}
+
+/* Monaco Editor ichida tanlashni ta’minlash */
+.monaco-editor {
+  user-select: text !important;
+  pointer-events: auto !important;
+}
+
+/* Tashqi konteyner uchun qo‘shimcha stillar */
+.code-editor-wrapper {
+  user-select: text !important;
+  pointer-events: auto !important;
+}

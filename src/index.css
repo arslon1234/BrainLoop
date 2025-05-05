@@ -9,10 +9,13 @@ html, body {
   height: 100%;
   background-color: #3c3c3c;
 }
+
 .monaco-editor {
   border-radius: 8px !important; /* Asosiy editor konteyneriga */
   background: #262626 !important;
   overflow: visible !important;
+  user-select: text !important;
+  pointer-events: auto !important;
 }
 
 .monaco-editor-background,
@@ -40,3 +43,27 @@ html, body {
   border-radius: 8px !important;
   overflow: visible !important;
 }
+
+/* Tanlash orqa fonini mustahkamlash */
+.monaco-editor .focused .selection,
+.monaco-editor .selection,
+.monaco-editor .mtk1.selection,
+.monaco-editor .view-line .selection {
+  background-color: #3399FF !important; /* Tanlangan qismning orqa foni: ko‘k */
+  opacity: 1 !important; /* To‘liq shaffoflik, chunki 0.5 juda xira bo‘lishi mumkin */
+  z-index: 1000 !important; /* Tanlashning yuqori qatlamda bo‘lishini ta’minlash */
+}
+
+/* Qo‘shimcha tanlash stillari */
+.monaco-editor .selected-text {
+  background-color: #3399FF !important;
+  opacity: 0.5 !important;
+  z-index: 1000 !important;
+}
+
+/* Tanlashni ta’minlash uchun qo‘shimcha */
+.monaco-editor .view-line {
+  user-select: text !important;
+  pointer-events: auto !important;
+}
+
