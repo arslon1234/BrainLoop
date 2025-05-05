@@ -1,0 +1,34 @@
+/* Dropdown tugmasi stillari */
+.custom-dropdown-button {
+    transition: background-color 0.2s ease !important;
+  }
+  
+  .custom-dropdown-button:hover {
+    background-color: #333333 !important; /* Hover’da orqa fon #999 */
+  }
+  
+  /* Dropdown menyusi stillari */
+  .custom-dropdown .ant-dropdown-menu {
+    background-color: #333333 !important; /* Menyu orqa foni har doim #999 */
+    border-radius: 4px !important; /* LeetCode’ga o‘xshash yumaloq burchaklar */
+    padding: 8px !important; /* Menyuga padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important; /* Soyali effekt */
+  }
+  
+  /* Menyu elementlari stillari */
+  .custom-dropdown .ant-dropdown-menu-item {
+    color: #fff !important; /* Matn oq rang */
+    padding: 4px 20px !important; /* Ichki padding */
+    border-radius: 3px !important; /* Yumaloq burchaklar */
+    transition: background-color 0.2s ease !important;
+  }
+  
+  .custom-dropdown .ant-dropdown-menu-item:hover {
+    background-color: #555555 !important; /* Hover’da quyuqroq kulrang */
+  }
+  
+  /* Menyudagi tanlangan element */
+  .custom-dropdown .ant-dropdown-menu-item-selected {
+    background-color: #555 !important; /* Tanlangan til uchun quyuqroq rang */
+    font-weight: 500 !important;
+  }

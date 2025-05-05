@@ -4,7 +4,6 @@ import CodeEditor from '../playground/code-editor';
 import Question from '../playground/question';
 import Result from '../playground/testcase';
 
-
 const Layout = () => {
   return (
     <Splitter

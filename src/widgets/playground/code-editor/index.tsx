@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import Editor from '@monaco-editor/react';
 import * as monaco from 'monaco-editor';
-// import CodeEditorHeader from './header';
+import CodeEditorHeader from './header';
 const CodeEditor = () => {
   const [code, setCode] = useState<string>('// Bu yerda kod yozing\nconsole.log("Salom, dunyo!");');
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
@@ -27,6 +27,8 @@ const CodeEditor = () => {
   };
 
   return (
+    <>
+    <CodeEditorHeader/>
     <Editor
       height="calc(100vh - 60px)"
       width="100%"
@@ -57,6 +59,7 @@ const CodeEditor = () => {
         formatOnType: true, // Yozishda formatlash
       }}
     />
+    </>
   );
 };
 
