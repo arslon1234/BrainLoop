@@ -37,7 +37,7 @@ const CodeEditorHeader = ({ onLanguageChange, onFormatCode }: CodeEditorHeaderPr
     }, 1000); // 1 soniya
   };
   return (
-    <div className="p-2 bg-transparent w-full rounded-tl-lg rounded-tr-lg flex justify-between items-center border-b-[0.9px] border-[#333]">
+    <div className="p-2 bg-transparent w-full rounded-tl-lg rounded-tr-lg flex justify-between items-center border-b-[0.9px] border-[var(--primary-dark)]">
       <div>
       <Dropdown
         menu={{ items, onClick: handleMenuClick }}
