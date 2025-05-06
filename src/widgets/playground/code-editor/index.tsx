@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import Editor from '@monaco-editor/react';
 import * as monaco from 'monaco-editor';
 import CodeEditorHeader from './header';
@@ -23,7 +23,14 @@ const CodeEditor = () => {
   const handleEditorChange = (value: string | undefined) => {
     setCode(value || '');
   };
+  useEffect(() => {
+    const savedCode = localStorage.getItem('code');
+    if (savedCode) setCode(savedCode);
+  }, [setCode]);
 
+  useEffect(() => {
+    localStorage.setItem('code', code);
+  }, [code]);
   const handleEditorDidMount = (editor: monaco.editor.IStandaloneCodeEditor) => {
     editorRef.current = editor;
     editor.focus();
