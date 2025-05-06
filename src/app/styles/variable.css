@@ -3,9 +3,9 @@
     --primary-dark: #333333;
     --primary-gray: #262626;
     --primary-light: #ffffff;
-    --secondary: #16a34a;
+    --secondary-light: #adadad;
     --secondary-dark: #15803d;
-    --secondary-light: #4ade80;
+    --secondary: #16a34a;
     --neutral-100: #f3f4f6;
     --neutral-800: #1f2937;
     --font-size-xs: 0.75rem;
@@ -21,3 +21,6 @@
     --font-family-sans: 'Inter', 'Arial', sans-serif;
     --font-family-mono: 'Fira Code', monospace;
   }
+
+ 
+  

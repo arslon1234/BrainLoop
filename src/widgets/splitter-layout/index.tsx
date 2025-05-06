@@ -7,7 +7,7 @@ import Result from '../playground/testcase';
 const Layout = () => {
   return (
     <Splitter
-      className="flex gap-1 h-[calc(100vh-40px)]"
+      className="flex gap-1 !h-[calc(100vh-40px)]"
       style={{ height: '100vh', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
     >
       <Splitter.Panel defaultSize={55}>

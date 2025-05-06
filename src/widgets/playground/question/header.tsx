@@ -1,66 +1,32 @@
-import { Tabs } from 'antd';
-import { useState } from 'react';
-
-const { TabPane } = Tabs;
-
-const QuestionHeader = () => {
-  const [activeTab, setActiveTab] = useState('description');
-
-  const handleTabChange = (key: string) => {
-    setActiveTab(key);
-  };
-
+interface TabItem {
+  key: string;
+  label: string;
+  content: string;
+}
+interface HeaderType {
+    tabs: TabItem[],
+    handleTabClick: (key:string)=> void,
+    activeTab: string
+}
+const QuestionHeader = ({tabs, handleTabClick, activeTab}:HeaderType) => {
   return (
-    <div className="p-3 bg-transparent w-full rounded-tl-lg rounded-tr-lg flex justify-between items-center border-b-[0.9px] border-[var(--primary-dark)]">
-      <Tabs
-        defaultActiveKey="description"
-        onChange={handleTabChange}
-        className="w-full"
-        tabBarStyle={{ color: 'var(--primary-light)', borderBottom: 'none' }}
-        tabBarGutter={16}
-        activeKey={activeTab}
-      >
-        <TabPane
-          tab={
-            <span className={`text-[var(--primary-light)] hover:text-[var(--primary)] transition-colors ${activeTab === 'description' ? 'border-b-2 border-[var(--primary)]' : ''}`}>
-              Description
-            </span>
-          }
-          key="description"
-        >
-          <div className="text-[var(--primary-light)]">Description content goes here</div>
-        </TabPane>
-        <TabPane
-          tab={
-            <span className={`text-[var(--primary-light)] hover:text-[var(--primary)] transition-colors ${activeTab === 'editorial' ? 'border-b-2 border-[var(--primary)]' : ''}`}>
-              Editorial
-            </span>
-          }
-          key="editorial"
-        >
-          <div className="text-[var(--primary-light)]">Editorial content goes here</div>
-        </TabPane>
-        <TabPane
-          tab={
-            <span className={`text-[var(--primary-light)] hover:text-[var(--primary)] transition-colors ${activeTab === 'solutions' ? 'border-b-2 border-[var(--primary)]' : ''}`}>
-              Solutions
-            </span>
-          }
-          key="solutions"
-        >
-          <div className="text-[var(--primary-light)]">Solutions content goes here</div>
-        </TabPane>
-        <TabPane
-          tab={
-            <span className={`text-[var(--primary-light)] hover:text-[var(--primary)] transition-colors ${activeTab === 'submission' ? 'border-b-2 border-[var(--primary)]' : ''}`}>
-              Submission
-            </span>
-          }
-          key="submission"
-        >
-          <div className="text-[var(--primary-light)]">Submission content goes here</div>
-        </TabPane>
-      </Tabs>
+    <div className="px-3 py-2 bg-[var(--primary-dark)] w-full rounded-tl-lg rounded-tr-lg border-b-[0.9px] border-[var(--primary-dark)]">
+      <div className="flex gap-3">
+        {tabs.map((item: TabItem) => (
+          <button
+            key={item.key}
+            onClick={() => handleTabClick(item.key)}
+            className={`text-[15px] py-1 px-2 rounded-[4px] cursor-pointer transition-colors ${
+              activeTab === item.key
+                ? 'text-[var(--primary-light)] hover:bg-[#474747]'
+                : 'text-[var(--secondary-light)] hover:bg-[#474747]'
+            }`}
+          >
+            {item.label}
+          </button>
+        ))}
+      </div>
+      
     </div>
   );
 };
