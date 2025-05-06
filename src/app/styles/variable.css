@@ -1,0 +1,22 @@
+:root {
+    --primary-green: #2ac245;
+    --primary-dark: #333333;
+    --primary-gray: #262626;
+    --secondary: #16a34a;
+    --secondary-dark: #15803d;
+    --secondary-light: #4ade80;
+    --neutral-100: #f3f4f6;
+    --neutral-800: #1f2937;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --spacing-1: 0.25rem;
+    --spacing-2: 0.5rem;
+    --spacing-3: 0.75rem;
+    --spacing-4: 1rem;
+    --border-radius-sm: 0.125rem;
+    --border-radius-md: 0.25rem;
+    --font-family-sans: 'Inter', 'Arial', sans-serif;
+    --font-family-mono: 'Fira Code', monospace;
+  }

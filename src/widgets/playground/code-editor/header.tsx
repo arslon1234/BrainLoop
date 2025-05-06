@@ -44,23 +44,23 @@ const CodeEditorHeader = ({ onLanguageChange, onFormatCode }: CodeEditorHeaderPr
         trigger={['click']}
         overlayClassName="custom-dropdown"
       >
-        <button className="custom-dropdown-button text-[#ccc] hover:bg-[#333333] flex items-center gap-1 cursor-pointer px-3 py-1 rounded-md">
+        <button className="custom-dropdown-button text-[#ccc] hover:bg-[var(--primary-dark)] flex items-center gap-1 cursor-pointer px-3 py-1 rounded-md">
           {selectedLanguage} <DownOutlined className='text-[12px]'/>
         </button>
       </Dropdown>
       </div>
       <div className='flex gap-2'>
         <Tooltip title="Format Code" placement='top'>
-        <button onClick={isFormatted ? undefined : handleFormatClick} disabled={isFormatted} className='cursor-pointer hover:bg-[#333] p-1 rounded-[4px]'>
+        <button onClick={isFormatted ? undefined : handleFormatClick} disabled={isFormatted} className='cursor-pointer hover:bg-[var(--primary-dark)] p-1 rounded-[4px]'>
         {isFormatted ? (
-              <RiCheckLine className='text-[17px] text-[green]' />
+              <RiCheckLine className='text-[17px] text-[var(--primary-green)]' />
             ) : (
               <CgFormatLeft className='text-[17px] text-[#999]' />
             )}
         </button>
         </Tooltip>
         <Tooltip title="Reset to default code definition" placement='top'>
-        <button className='cursor-pointer hover:bg-[#333] p-1 rounded-[4px]'>
+        <button className='cursor-pointer hover:bg-[var(--primary-dark)] p-1 rounded-[4px]'>
         <RiResetLeftLine className='text-[17px] text-[#999]'/>
         </button>
         </Tooltip>

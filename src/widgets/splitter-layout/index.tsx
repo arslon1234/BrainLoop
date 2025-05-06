@@ -10,7 +10,7 @@ const Layout = () => {
       className="flex gap-1 h-[calc(100vh-40px)]"
       style={{ height: '100vh', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
     >
-      <Splitter.Panel>
+      <Splitter.Panel defaultSize={55}>
         <Splitter
           className="flex flex-col gap-1"
           layout="vertical"
@@ -25,7 +25,7 @@ const Layout = () => {
           </Splitter.Panel>
         </Splitter>
       </Splitter.Panel>
-      <Splitter.Panel>
+      <Splitter.Panel defaultSize={45}>
         <Question />
       </Splitter.Panel>
     </Splitter>

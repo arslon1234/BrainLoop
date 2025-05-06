@@ -1,7 +1,7 @@
 
 const Question = () => {
     return (
-      <div className="w-full h-screen bg-[#262626] rounded-[8px] p-3">
+      <div className="w-full h-screen bg-[var(--primary-gray)] rounded-[8px] p-3">
         <h1 className="text-white">Question</h1>
       </div>
     )
