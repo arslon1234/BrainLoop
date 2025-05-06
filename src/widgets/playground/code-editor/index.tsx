@@ -1,13 +1,13 @@
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import Editor from '@monaco-editor/react';
 import * as monaco from 'monaco-editor';
 import CodeEditorHeader from './header';
-
+import { useCodeStore } from '../../../store/codeStore';
 const CodeEditor = () => {
-  const [code, setCode] = useState<string>('// Bu yerda kod yozing\nconsole.log("Salom, dunyo!");');
-  const [language, setLanguage] = useState<string>('javascript');
+  // const [code, setCode] = useState<string>('// Bu yerda kod yozing\nconsole.log("Salom, dunyo!");');
+  // const [language, setLanguage] = useState<string>('javascript');
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
-
+  const { code, setCode, language, setLanguage } = useCodeStore();
   const defaultCodes: { [key: string]: string } = {
     javascript: '// Bu yerda kod yozing\nconsole.log("Salom, dunyo!");',
     python: '# Bu yerda kod yozing\nprint("Salom, dunyo!")',
