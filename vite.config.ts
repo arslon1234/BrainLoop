@@ -12,6 +12,7 @@ export default defineConfig({
       { find: "@", replacement: "/src/*" },
       { find: "@pages", replacement: "/src/pages" },
       { find: "@widgets", replacement: "/src/widgets" },
+      { find: "@shared", replacement: "/src/shared" },
     ],
   },
 })

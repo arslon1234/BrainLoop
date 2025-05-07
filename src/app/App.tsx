@@ -1,10 +1,7 @@
-import { PlayGround } from "@pages"
+import { RouterProvider } from "react-router-dom"
+import { router } from "./routing/config/router"
 const App = () => {
-  return (
-    <>
-    <PlayGround/>
-    </>
-  )
+  return <RouterProvider router={router}/>
 }
 
 export default App
