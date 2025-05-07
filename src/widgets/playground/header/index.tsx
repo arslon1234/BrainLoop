@@ -1,4 +1,5 @@
-import { Button, Space } from "antd"
+import { Avatar, Button, Space } from "antd"
+import { UserOutlined } from '@ant-design/icons';
 import { FaCaretRight } from "react-icons/fa";
 import { MdCloudUpload } from "react-icons/md";
 import { FaChevronLeft } from "react-icons/fa6";
@@ -39,7 +40,7 @@ const Header = () => {
           </Space.Compact>
         </div>
         <div>
-          <h1>Profile settings</h1>
+        <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
         </div>
     </div>
   )
