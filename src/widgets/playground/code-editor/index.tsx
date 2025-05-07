@@ -3,11 +3,11 @@ import Editor from '@monaco-editor/react';
 import * as monaco from 'monaco-editor';
 import CodeEditorHeader from './header';
 import { useCodeStore } from '../../../store/codeStore';
+
 const CodeEditor = () => {
-  // const [code, setCode] = useState<string>('// Bu yerda kod yozing\nconsole.log("Salom, dunyo!");');
-  // const [language, setLanguage] = useState<string>('javascript');
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
   const { code, setCode, language, setLanguage } = useCodeStore();
+
   const defaultCodes: { [key: string]: string } = {
     javascript: '// Bu yerda kod yozing\nconsole.log("Salom, dunyo!");',
     python: '# Bu yerda kod yozing\nprint("Salom, dunyo!")',
@@ -20,17 +20,34 @@ const CodeEditor = () => {
     php: '<?php\n// Bu yerda kod yozing\necho "Salom, dunyo!";\n?>',
     csharp: '// Bu yerda kod yozing\nusing System;\nclass Program {\n  static void Main(string[] args) {\n    Console.WriteLine("Salom, dunyo!");\n  }\n}',
   };
+
+  const languageMap: { [key: string]: string } = {
+    javascript: 'javascript',
+    python: 'python',
+    java: 'java',
+    cpp: 'cpp',
+    typescript: 'typescript',
+    ruby: 'ruby',
+    go: 'go',
+    rust: 'rust',
+    php: 'php',
+    csharp: 'csharp',
+  };
+
+  // Sahifa yuklanganda yoki til o‘zgarganda localStorage’dan kodni olish
+  useEffect(() => {
+    const savedCode = localStorage.getItem(`code_${language}`);
+    setCode(savedCode || defaultCodes[language] || '// Kod yozing');
+  }, [language, setCode]);
+
+  useEffect(() => {
+    localStorage.setItem(`code_${language}`, code);
+  }, [code, language]);
+
   const handleEditorChange = (value: string | undefined) => {
     setCode(value || '');
   };
-  useEffect(() => {
-    const savedCode = localStorage.getItem('code');
-    if (savedCode) setCode(savedCode);
-  }, [setCode]);
 
-  useEffect(() => {
-    localStorage.setItem('code', code);
-  }, [code]);
   const handleEditorDidMount = (editor: monaco.editor.IStandaloneCodeEditor) => {
     editorRef.current = editor;
     editor.focus();
@@ -45,16 +62,18 @@ const CodeEditor = () => {
     });
   };
 
-  const handleLanguageChange = (language: string) => {
-    setLanguage(language);
-    setCode(defaultCodes[language] || '// Kod yozing');
+  const handleLanguageChange = (newLanguage: string) => {
+    setLanguage(newLanguage);
+    const savedCode = localStorage.getItem(`code_${newLanguage}`);
+    setCode(savedCode || defaultCodes[newLanguage] || '// Kod yozing');
     if (editorRef.current) {
       const model = editorRef.current.getModel();
       if (model) {
-        monaco.editor.setModelLanguage(model, language);
+        monaco.editor.setModelLanguage(model, languageMap[newLanguage] || newLanguage);
       }
     }
   };
+
   const handleFormatCode = () => {
     if (editorRef.current) {
       editorRef.current.getAction('editor.action.formatDocument')?.run();
