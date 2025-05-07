@@ -3,6 +3,7 @@ import { FaCaretRight } from "react-icons/fa";
 import { MdCloudUpload } from "react-icons/md";
 import { FaChevronLeft } from "react-icons/fa6";
 import { FaChevronRight } from "react-icons/fa";
+import { FaRandom } from "react-icons/fa";
 import { useCodeStore } from "../../../store/codeStore";
 import '@ant-design/v5-patch-for-react-19';
 const Header = () => {
@@ -13,12 +14,15 @@ const Header = () => {
   return (
     <div className="h-[40px] p-4 flex items-center justify-between">
         <div>
-          <Space.Compact>
+          <Space.Compact className="flex gap-0.5">
             <Button className="!bg-[#222222] !text-white !border-none hover:!bg-[var(--primary-dark)]">
               <FaChevronLeft className="text-[16px] text-[#a9a8a8]"/>
             </Button>
             <Button className="!bg-[#222222] !text-white !border-none hover:!bg-[var(--primary-dark)]">
               <FaChevronRight className="text-[16px] text-[#a9a8a8]"/>
+            </Button>
+            <Button className="!bg-[#222222] !text-white !border-none hover:!bg-[var(--primary-dark)]">
+              <FaRandom className="text-[16px] text-[#a9a8a8]"/>
             </Button>
           </Space.Compact>
         </div>
