@@ -18,7 +18,7 @@ const Header = () => {
   const wsRef = useRef<WebSocket | null>(null);
   // console.log(result)
   useEffect(() => {
-    const ws = new WebSocket("ws://compile.prodonik.uz/api/v1/execute");
+    const ws = new WebSocket("wss://compile.prodonik.uz/api/v1/execute");
     wsRef.current = ws;
 
     // Aloqa ochilganda
