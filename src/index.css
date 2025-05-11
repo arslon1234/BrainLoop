@@ -17,7 +17,7 @@ html, body {
 .monaco-editor {
   border-radius: 8px !important; /* Asosiy editor konteyneriga */
   background: #262626 !important;
-  overflow: visible !important;
+  overflow: hidden !important;
   user-select: text !important;
   pointer-events: auto !important;
 }
